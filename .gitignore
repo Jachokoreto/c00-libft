@@ -54,3 +54,5 @@ dkms.conf
 #custom
 test*
 .*
+FT_SPLIT_TESTER/
+
