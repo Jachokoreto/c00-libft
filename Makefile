@@ -9,13 +9,13 @@ DEPS = libft.h
 all: $(NAME)
 
 $(NAME): $(SRCS:.c=.o)
-	ar rcs $@ $^
+	@ar rcs $@ $^
 
 bonus: $(BONUS_SRCS:.c=.o)
-	ar rcs $(NAME) $^
+	@ar rcs $(NAME) $^
 	
 %.o: %.c $(DEPS)
-	$(CC) -c $<
+	@$(CC) -c $<
 
 so:
 	$(CC) -nostartfiles -fPIC $(SRCS) $(BONUS_SRCS)
@@ -25,10 +25,10 @@ test: $(NAME) bonus
 	@$(CC) test.c -L. -lft && ./a.out
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 fclean:
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
