@@ -10,7 +10,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = ft_strlen(s) - 1;
 	while (i >= 0)
 	{
-		f(i, s + i);
+		f(i, s);
 		i--;
 	}
 }
