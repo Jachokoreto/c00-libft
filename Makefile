@@ -7,9 +7,11 @@ BONUS_SRCS := $(shell find . -name ft_lst\*.c)
 DEPS = libft.h
 
 all: $(NAME)
+	@echo "libft.a not available, compiling now..."
 
 $(NAME): $(SRCS:.c=.o)
 	@ar rcs $@ $^
+	@echo "${GREEN}libft.a compile successful!${NC}"
 
 bonus: $(BONUS_SRCS:.c=.o)
 	@ar rcs $(NAME) $^
@@ -27,10 +29,13 @@ test: $(NAME) bonus
 clean:
 	@rm -f *.o
 
-fclean:
+fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: clean fclean re all
 
+RED = \033[0;31m
+GREEN = \033[0;32m
+NC = \033[0m # No Color
