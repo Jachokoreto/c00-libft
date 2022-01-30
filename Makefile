@@ -13,8 +13,9 @@ $(NAME): $(SRCS:.c=.o)
 	@ar rcs $@ $^
 	@echo "${GREEN}libft.a compile successful!${NC}"
 
-bonus: $(BONUS_SRCS:.c=.o)
+bonus: $(BONUS_SRCS:.c=.o)  $(SRCS:.c=.o)
 	@ar rcs $(NAME) $^
+	@echo "${GREEN}libft.a with bonus compile successful!${NC}"
 	
 %.o: %.c $(DEPS)
 	@$(CC) -c $<
